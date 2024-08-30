@@ -1,0 +1,19 @@
+<div> 
+    <!-- Adding EventListeners () -->
+    <button (click)="onSelectUser()"> 
+        <!-- //Property Binding -->
+        <!-- <img [src]="'assets/users/' + selectedUser.avatar" [alt]="selectedUser.name"> -->
+     
+        <!-- Using -->
+        <!-- <img [src]="imagePath" [alt]="selectedUser.name"> -->
+<!-- Signal -->
+        <img [src]="imagePath" [alt]="user.name">
+     
+        <!-- String Intepolation -->
+        <!-- <span>{{selectedUser.name}}</span> -->
+
+        <!-- Using the signal -->
+        <!-- <span>{{name}}</span> -->
+               <span>{{user.name}}</span>
+    </button>
+</div>
