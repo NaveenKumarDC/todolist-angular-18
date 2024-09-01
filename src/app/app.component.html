@@ -19,7 +19,7 @@
     <li>
       <app-user [avatar]="users[3].avatar" [name]="users[0].name" [id]="users[3].id" (select)="onSelectUser($event)" />
     </li> -->
-    <li>
+    <!-- <li>
       <app-user [user]="users[0]" (select)="onSelectUser($event)" />
     </li>
     <li>
@@ -30,8 +30,19 @@
     </li>
     <li>
       <app-user [user]="users[3]" (select)="onSelectUser($event)" />
-    </li>
+    </li> -->
+
+
+    <!-- Dynamically Rendering - Angular syntax : track allows to define unique constraint for the list make sure the update to users list is efficient-->
+   @for (user of users; track user.id) {
+    <li>
+      <app-user [user]="user" (select)="onSelectUser($event)" />
+    </li> 
+   }
+
   </ul>
+
+  
   
   <app-tasks [name] = "selectedUser ? selectedUser.name: ''"/>
 

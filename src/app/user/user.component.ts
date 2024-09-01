@@ -2,6 +2,22 @@ import { Component, signal, computed, Input, input, Output, EventEmitter, output
 import { DUMMY_USERS } from '../dummy.users';
 
 const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
+
+//Defining type or interface which is a Type script functionality
+// You can define other objects too..
+type User = {
+  id: string;
+  avatar: string;
+  name: string;
+}
+
+//Only to define object type
+interface UserType {
+  id: string;
+  avatar: string;
+  name: string;
+}
+
 @Component({
   selector: 'app-user',
   standalone: true,
