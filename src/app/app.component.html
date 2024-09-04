@@ -34,16 +34,20 @@
 
 
     <!-- Dynamically Rendering - Angular syntax : track allows to define unique constraint for the list make sure the update to users list is efficient-->
-   @for (user of users; track user.id) {
+   <!-- Angular version from 17 -->
+    @for (user of users; track user.id) {
     <li>
-      <app-user [user]="user" (select)="onSelectUser($event)" />
+      <app-user [user]="user" (select)="onSelectUser($event)" [selected]="user.id === selectedUserId"/>
     </li> 
    }
 
   </ul>
 
   
-  
-  <app-tasks [name] = "selectedUser ? selectedUser.name: ''"/>
+  @if (selectedUser) {
+    <app-tasks [name] = "selectedUser.name" [userId]="selectedUser.id"/>
+  } @else {
+    <p id = "fall back"> Select a user to see their task</p> 
+  }
 
 </main>

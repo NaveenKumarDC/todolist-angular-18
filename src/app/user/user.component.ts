@@ -1,5 +1,6 @@
 import { Component, signal, computed, Input, input, Output, EventEmitter, output, InputSignal } from '@angular/core';
 import { DUMMY_USERS } from '../dummy.users';
+import { CardComponent } from "../shared/card/card.component";
 
 const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
 
@@ -12,18 +13,18 @@ type User = {
 }
 
 //Only to define object type
-interface UserType {
-  id: string;
-  avatar: string;
-  name: string;
-}
+// interface UserType {
+//   id: string;
+//   avatar: string;
+//   name: string;
+// }
 
 @Component({
   selector: 'app-user',
   standalone: true,
-  // imports: [],
   templateUrl: './user.component.html',
-  styleUrl: './user.component.css'
+  styleUrl: './user.component.css',
+  imports: [CardComponent]
 })
 export class UserComponent {
 /**
@@ -60,6 +61,8 @@ export class UserComponent {
     avatar: string
     name: string
   }
+
+  @Input({required: true}) selected!: boolean;
 
   get imagePath() {
     // return 'assets/users/' + this.avatar;
