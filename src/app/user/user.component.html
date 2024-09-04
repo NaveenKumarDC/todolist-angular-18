@@ -1,6 +1,7 @@
+<app-card>
 <div> 
     <!-- Adding EventListeners () -->
-    <button (click)="onSelectUser()"> 
+    <button [class.active]="selected" (click)="onSelectUser()"> 
         <!-- //Property Binding -->
         <!-- <img [src]="'assets/users/' + selectedUser.avatar" [alt]="selectedUser.name"> -->
      
@@ -17,3 +18,4 @@
                <span>{{user.name}}</span>
     </button>
 </div>
+</app-card>
